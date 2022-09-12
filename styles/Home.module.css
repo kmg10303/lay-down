@@ -125,5 +125,33 @@
   }
   .logo img {
     filter: invert(1);
-  }
+ }
 }
+
+
+
+  .row {
+    display: flex;
+  }
+
+  .column {
+    flex: 50%;
+    border: black;
+    border-style: solid;
+    border-width: 2px;
+    margin: 5px;
+  }
+
+  .columncontent {
+    padding-bottom: 15px;
+    padding-left: 15px;
+  }
+
+
+  .examplename {
+    text-align: left;
+  }
+  
+  .examplepost {
+
+  }
