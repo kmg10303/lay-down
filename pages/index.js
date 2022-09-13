@@ -4,11 +4,12 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { useAuth } from '../hooks/useAuth'
 
+
 export default function Home() {
   
-  const {user, logIn} = useAuth(); 
+  const {user, logIn, logOut} = useAuth(); 
 
-  console.log('user', user);
+  console.log('user is', user);
 
   return (
     <div className={styles.container}>
@@ -18,9 +19,19 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <p>
-        <button onClick={logIn}>Log In</button>
-      </p>
+      {! user && (
+        <p>
+          <button onClick={logIn}>Log In</button>
+       </p>
+      )}
+
+      { user && (
+        <p>
+          <button onClick={logOut}>Log Out</button>
+       </p>
+      )}
+
+
 
       <main className={styles.main}>
         <h1 className={styles.title}>
@@ -57,7 +68,6 @@ export default function Home() {
             <h1>
                 I am recording and submitting things
               </h1>
-
               <form>
               <label for="fileToUpload">Insert audio file</label><br />
                 <input type="file" name="fileToUpload" accept=".mp3,audio/*" /><br />
