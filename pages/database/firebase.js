@@ -37,4 +37,5 @@ firestore = getFirestore();
 
 export function recieveData(user) {
   db.collection('users').doc(user).set({foo:'bar'}, {merge: true});
+  console.log('data added to db \'users\' and its name is ', user);
 }
